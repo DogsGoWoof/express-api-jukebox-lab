@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 //method override
 
-// const trackRouter = require(./controllers/tracks.js);
+const trackRouter = require('./controllers/tracks.js');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -17,8 +17,8 @@ mongoose.connection.on('connected', () => {
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-// track router
+app.use('/', trackRouter);
 
 app.listen(3000, () => {
-    console.log('The express app is ready!');
+    console.log('Making Tracks, Fattening Stacks');
 });
