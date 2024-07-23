@@ -17,7 +17,7 @@ mongoose.connection.on('connected', () => {
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-app.use('/', trackRouter);
+app.use('/tracks', trackRouter);
 
 app.listen(3000, () => {
     console.log('Making Tracks, Fattening Stacks');
